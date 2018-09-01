@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Marvel API</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.12/css/uikit.min.css" />
+    <link rel="stylesheet" href="dist/bundle.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./favicon.png">
+</head>
+
+
+<body>
+    <div class="uk-offcanvas-content">
+
+        <header class="header">
+            <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+                <nav class="uk-navbar-container nav">
+                    <div class="uk-container">
+                        <div uk-navbar>
+                            <div class="uk-navbar-left">
+                                <a class="uk-navbar-item uk-logo nav__logo" href="#">
+                                    <img data-src="./src/images/logo.png" width="" height="" alt="" uk-img>
+                                </a>
+                            </div>
+                    
+                            <div class="uk-navbar-right">
+                                <ul class="uk-navbar-nav">
+                                    <li class="uk-active"><a href="#">Active</a></li>
+                                    <li>
+                                        <a href="#">Parent</a>
+                                        <div class="uk-navbar-dropdown">
+                                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                <li class="uk-active"><a href="#">Active</a></li>
+                                                <li><a href="#">Item</a></li>
+                                                <li><a href="#">Item</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="#">Item</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Intro Section -->
+            <div class="uk-section intro-sec uk-hidden">
+                <div class="uk-container">
+                    <div class="uk-child-width-1-2@m" uk-grid>
+                        <div>
+                            <img class="uk-align-center uk-border-rounded intro-sec__thumbnail" data-src="http://i.annihil.us/u/prod/marvel/i/mg/6/60/5261a80a67e7d/portrait_uncanny.jpg"
+                                alt="" uk-img>
+                        </div>
+                        <div>
+                            <h1 class="intro-sec__heading">Black Panther</h1>
+                            <p class="intro-sec__desc uk-dropcap">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus repudiandae tempora perspiciatis dolor quidem perferendis
+                                obcaecati libero, facilis magnam id, optio rerum eius modi numquam possimus natus. Praesentium, dolor natus.
+                            </p>
+                
+                            <div class="uk-margin intro-sec__buttons">
+                                <button class="uk-button uk-button-primary">Primary</button>
+                                <a href="" class="uk-button uk-button-default">Visit Resourse</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uk-section intro-sec">
+                <div class="uk-container">                    
+                    <section class="hero uk-section">
+                        <h1 class="uk-heading-hero uk-text-center">Know your Favorite Marvel HEROS!</h1>
+                    </section>
+                </div>
+            </div>
+        </header>
+
+        <div class="uk-container">
+            
+            <!-- Details View -->
+            <div class="hero-details uk-hidden">
+        
+                <!-- Comic Section -->
+                <div class="uk-section uk-margin comics-sec">
+                    <div class="uk-margin">
+                        <h1 class="comics-sec__heading uk-heading-line"><span>Comics <em>(125)</em></span></h1>
+                    </div>
+        
+                    <div class="uk-child-width-1-4@m comics-sec__content" uk-grid>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#my-id" uk-toggle class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                    <button class="uk-button uk-button-primary uk-margin-medium-top uk-align-center">Load More</button>
+                </div>
+        
+                <!-- Series Section -->
+                <div class="uk-section uk-margin comics-sec">
+                    <div class="uk-margin">
+                        <h1 class="comics-sec__heading uk-heading-line"><span>Stories <em>(125)</em></span></h1>
+                    </div>
+        
+                    <div class="uk-child-width-1-4@m comics-sec__content" uk-grid>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                            <p class="uk-text-meta uk-margin-top">interiorStory</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                            <p class="uk-text-meta uk-margin-top">interiorStory</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                            <p class="uk-text-meta uk-margin-top">interiorStory</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                            <p class="uk-text-meta uk-margin-top">interiorStory</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                    <button class="uk-button uk-button-primary uk-margin-medium-top uk-align-center">Load More</button>
+                </div>
+        
+                <!-- Series Section -->
+                <div class="uk-section uk-margin comics-sec">
+                    <div class="uk-margin">
+                        <h1 class="comics-sec__heading uk-heading-line"><span>Series <em>(125)</em></span></h1>
+                    </div>
+        
+                    <div class="uk-child-width-1-4@m comics-sec__content" uk-grid>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                        <div class="uk-width-auto">
+                                            <span uk-icon="nut"></span>
+                                        </div>
+                                        <div class="uk-width-expand">
+                                            <h3 class="uk-card-title uk-margin-remove-bottom">A+X (2012) #3</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="#" class="uk-button uk-button-text">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                    <button class="uk-button uk-button-primary uk-margin-medium-top uk-align-center">Load More</button>
+                </div>
+            </div>
+
+            <!-- Home View -->
+            <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-margin-large-top" id="js--hero-list" uk-grid uk-height-match="target: > div > a > .uk-card; row: false">
+                
+            </div>
+
+        </div>
+    
+        <!-- The whole page content goes here -->
+    
+        <!-- This is the off-canvas -->
+        <div id="my-id" uk-offcanvas>
+            <div class="uk-offcanvas-bar">
+    
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+    
+            </div>
+        </div>
+    
+    </div>
+
+
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.12/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.12/js/uikit-icons.min.js"></script>
+    <script type="text/javascript" src="dist/bundle.js"></script>
+</body>
+
+</html>
+        
+            

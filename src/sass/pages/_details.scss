@@ -1,0 +1,34 @@
+.intro-sec {
+    
+    &__thumbnail {
+        border: 5px solid $whiteColor;
+    }
+    
+    &__heading {
+        color: $whiteColor;
+        font-size: 5rem;
+        font-family: $secondaryFont;
+    }
+
+    &__desc {
+        font-size: 1.3rem;
+        font-weight: $lightWeight;
+    }
+
+    &__buttons {
+        a {
+            color: $whiteColor !important;
+        }
+    }
+}
+
+.comics-sec {
+    &__heading {
+        text-align: center;
+        font-family: $secondaryFont;
+    }
+
+    &__content {
+        margin-top: $largeSpace;
+    }
+}

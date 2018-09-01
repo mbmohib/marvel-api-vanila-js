@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $primaryFont;
+    background: $bodyColor;
+    font-size: 1rem;
+}
+
+a {
+    color: $fontColor;
+
+    &:hover {
+        text-decoration: none;
+        color: $linkColor;
+    }
+}
+
+address,
+p,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0;
+}
+
+em {
+    font-style: normal;
+}
+
+.loader {
+    margin: 5rem auto;
+    text-align: center;
+}
+.loader svg {
+    height: 5.5rem;
+    width: 5.5rem;
+    fill: #f0141e;
+    transform-origin: 44% 50%;
+    animation: rotate 1.5s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

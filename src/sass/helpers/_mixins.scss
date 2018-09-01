@@ -1,0 +1,173 @@
+/*
+    Buttons 
+---------------*/
+@mixin primary-button ($bgColor, $fontColor: #ffffff, $hoverColor: darken($bgColor, 10%), $fontSize: 100% ) {
+    font-size: $fontSize;
+    color: $fontColor;
+    border-radius: 3px;
+    background-color: $bgColor;
+    box-shadow: 0px 3px 6px -4px #a2a2a2;
+    transition: all 0.8s ease-in-out;
+
+    &:active, &:focus{
+        box-shadow: 0 0 0 0.2rem $hoverColor;
+    }
+
+    &:hover {
+        background: $hoverColor;
+        border-color: $hoverColor;
+    }
+}
+
+@mixin ghost-button ($bgColor, $fontColor: #ffffff, $fontSize: 100%) {
+    color: $bgColor;
+    border-color: $bgColor;
+    font-size: $fontSize;
+    background: transparent;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0px 3px 6px -4px #a2a2a2;
+    transition: all 0.5s ease-in-out;
+
+    &:focus, &:active {
+        box-shadow: 0 0 0 0.2rem $bgColor;
+    }
+
+    &:hover {
+        color: $fontColor;
+        background-color: $bgColor;
+    }
+}
+
+@mixin one-line-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+}
+
+@mixin displayTransition {
+    
+    @keyframes displayEffect {
+        from { 
+            opacity: 0; 
+        }
+        to { 
+            opacity: 1; 
+        }
+    }
+    
+    animation: displayEffect 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+@mixin wp-post {
+    p {
+        font-size: 110%;
+        line-height: 1.8;
+        text-align: justify;
+        margin-bottom: 15px;
+    }
+
+    a {
+        color: $linkColor;
+    }
+
+    @include tablet {
+        font-size: 100%;
+    }
+
+    blockquote {
+        margin: 20px 0;
+        padding: 10px 0;
+        color: $primaryColor;
+        border-top: 1px solid $colorOne;
+        border-bottom: 1px solid $colorOne;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        margin: 20px 0;
+        display: block;
+    }
+
+    h1 {
+
+        font-size: 140%;
+        
+        @include tablet {
+            font-size: 180%;
+        }
+    }
+
+    h2 {
+        font-size: 130%;
+
+        @include tablet {
+            font-size: 160%;
+        }
+    }
+
+    h3 {
+        font-size: 120%;
+
+        @include tablet {
+            font-size: 140%;
+        }
+    }
+
+    h4 {
+        font-size: 110%;
+
+        @include tablet {
+            font-size: 120%;
+        }
+    }
+
+    h5 {
+        font-size: 95%;
+
+        @include tablet {
+            font-size: 100%;
+        }
+    }
+
+    h6 {
+        font-size: 90%;
+
+        @include tablet {
+            font-size: 80%;
+        }
+    }
+
+    table {
+        border-collapse:separate; 
+        border-spacing: 10px 10px;
+        border: 1px solid #cdcdcd;
+        margin-bottom: 15px;
+        
+        thead {
+            text-align: center;
+        }
+
+    }
+    address {
+        margin-bottom: 15px;
+    }
+
+    code {
+        background: #90949c;
+        display: block;
+        padding: 20px;
+        color: #fff;
+    }
+
+    .wp-caption-text {
+        color: $secondaryColor;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+

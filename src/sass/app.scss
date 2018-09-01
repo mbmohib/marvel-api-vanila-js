@@ -1,0 +1,27 @@
+//Import SASS files
+@import 'basic/_variables.scss';
+@import 'basic/_basic.scss';
+
+@import 'helpers/_media-query.scss';
+@import 'helpers/_mixins.scss';
+@import 'helpers/_hover-effect.scss';
+
+@import 'components/_header.scss';
+@import 'components/_nav.scss';
+@import 'components/_search.scss';
+@import 'components/_carousal.scss';
+@import 'components/_article.scss';
+@import 'components/_article-mini.scss';
+@import 'components/_article-list.scss';
+@import 'components/_product.scss';
+@import 'components/_hero.scss';
+@import 'components/_product-mini.scss';
+@import 'components/_product-list.scss';
+@import 'components/_sidebar.scss';
+@import 'components/_pagination.scss';
+@import 'components/_social-link.scss';
+@import 'components/_footer.scss';
+
+@import 'pages/_home.scss';
+@import 'pages/_details.scss';
+@import 'pages/_browse.scss';

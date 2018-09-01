@@ -1,0 +1,85 @@
+.slick-arrow {
+    font-size: 0;
+    position: absolute;
+    color: #34495E;
+    border: none;
+    background-color: transparent;
+    z-index: 1;
+    top: 38%;
+    box-shadow: none;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.slick-prev {
+        left: 20px;
+        text-align: left;
+
+        &:after {
+            content: "\f104";
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900; 
+            font-size: 3rem;
+        }
+    }
+
+    &.slick-next {
+        right: 20px;
+        text-align: right;
+
+        &:after {
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900; 
+            content: "\f105";
+            font-size: 3rem;
+        }
+    }
+}
+
+.slick-dots {
+    position: absolute;
+    z-index: 2;
+    bottom: 20px;
+    font-size: 0;
+    color: #34495E;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+
+    li {
+        display: inline;
+
+        button {
+            background-color: transparent; /* Green */
+            border: none;
+
+            &::before {
+                color: rgb(255, 249, 249);
+                font: 20px/1 'ionicons';
+                content: "\f3a6";
+                opacity: .7;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.slick-dots li.slick-active button::before {
+    color: #34495E;
+    opacity: 1;
+    font: 20px/1 'ionicons';
+    content: "\f3a7";
+}
