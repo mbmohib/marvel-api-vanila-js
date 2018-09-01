@@ -1,8 +1,29 @@
-import Superhero from './models/Superhero';
-import { renderHeroes } from './controller/heroController';
+import Superhero from './models/Hero';
+import { renderHeroes } from './views/heroListView';
+import { renderHero } from './views/heroDetailsView';
+import { elements } from './base';
+import { viewChange } from './base';
+let flag = true;
 
-//Load Heros after loading;
-window.addEventListener('load', renderHeroes);
+function toggleView() {
+    const hashValue = window.location.hash.replace('#', '');
+
+    if(hashValue === 'home' || hashValue === '') {
+        // Render Hero List
+        viewChange('home');
+        if (flag) {
+            renderHeroes();
+            flag = false;
+        }
+    } else {
+        // Render Hero Details
+        renderHero(hashValue);
+        viewChange('details');
+    }
+}
+
+//Load Heros details after hashchange;
+['load', 'hashchange'].forEach( event => window.addEventListener(event, toggleView))
 
 
 const testHero = async (id) => {

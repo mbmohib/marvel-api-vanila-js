@@ -23,31 +23,26 @@
 <body>
     <div class="uk-offcanvas-content">
 
-        <header class="header">
+        <header class="header" id="js--header">
+            
+            <!-- Sticky Navbar -->
             <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
                 <nav class="uk-navbar-container nav">
                     <div class="uk-container">
                         <div uk-navbar>
                             <div class="uk-navbar-left">
-                                <a class="uk-navbar-item uk-logo nav__logo" href="#">
+                                <a class="uk-navbar-item uk-logo nav__logo js--home-link" href="#home">
                                     <img data-src="./src/images/logo.png" width="" height="" alt="" uk-img>
                                 </a>
                             </div>
                     
                             <div class="uk-navbar-right">
                                 <ul class="uk-navbar-nav">
-                                    <li class="uk-active"><a href="#">Active</a></li>
-                                    <li>
-                                        <a href="#">Parent</a>
-                                        <div class="uk-navbar-dropdown">
-                                            <ul class="uk-nav uk-navbar-dropdown-nav">
-                                                <li class="uk-active"><a href="#">Active</a></li>
-                                                <li><a href="#">Item</a></li>
-                                                <li><a href="#">Item</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="#">Item</a></li>
+                                    <li><a href="#home">Home</a></li>
+                                    <li><a href="">Comics</a></li>
+                                    <li><a href="">Stories</a></li>
+                                    <li><a href="">Series</a></li>
+                                    <li><a target="_blank" href="https://mohib.me/">Contact Me</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -55,35 +50,31 @@
                 </nav>
             </div>
 
-            <!-- Intro Section -->
-            <div class="uk-section intro-sec uk-hidden">
-                <div class="uk-container">
-                    <div class="uk-child-width-1-2@m" uk-grid>
-                        <div>
-                            <img class="uk-align-center uk-border-rounded intro-sec__thumbnail" data-src="http://i.annihil.us/u/prod/marvel/i/mg/6/60/5261a80a67e7d/portrait_uncanny.jpg"
-                                alt="" uk-img>
-                        </div>
-                        <div>
-                            <h1 class="intro-sec__heading">Black Panther</h1>
-                            <p class="intro-sec__desc uk-dropcap">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus repudiandae tempora perspiciatis dolor quidem perferendis
-                                obcaecati libero, facilis magnam id, optio rerum eius modi numquam possimus natus. Praesentium, dolor natus.
-                            </p>
-                
-                            <div class="uk-margin intro-sec__buttons">
-                                <button class="uk-button uk-button-primary">Primary</button>
-                                <a href="" class="uk-button uk-button-default">Visit Resourse</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-section intro-sec">
+            <!-- Home Intro Section -->
+            <div class="uk-section intro-sec uk-animation-fade" id="js--home-intro">
                 <div class="uk-container">                    
                     <section class="hero uk-section">
                         <h1 class="uk-heading-hero uk-text-center">Know your Favorite Marvel HEROS!</h1>
                     </section>
+                </div>
+            </div>
+
+            <!-- Details Intro Section -->
+            <div class="uk-section intro-sec uk-hidden uk-animation-fade" id="js--details-intro">
+                <div class="uk-container">
+                    <div class="uk-child-width-1-2@m" uk-grid>
+                        <div>
+                            <img class="uk-align-center uk-border-rounded intro-sec__thumbnail" data-src="" alt="" uk-img>
+                        </div>
+                        <div>
+                            <h1 class="intro-sec__heading"></h1>
+                            <p class="intro-sec__desc uk-dropcap"></p>
+                
+                            <div class="uk-margin intro-sec__buttons">
+                                <a href="" class="uk-button uk-button-default">Visit Resourse</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
@@ -91,7 +82,7 @@
         <div class="uk-container">
             
             <!-- Details View -->
-            <div class="hero-details uk-hidden">
+            <div class="hero-details uk-hidden uk-animation-fade" id="js--hero-details">
         
                 <!-- Comic Section -->
                 <div class="uk-section uk-margin comics-sec">
@@ -342,7 +333,7 @@
             </div>
 
             <!-- Home View -->
-            <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-margin-large-top" id="js--hero-list" uk-grid uk-height-match="target: > div > a > .uk-card; row: false">
+            <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-margin-large-top uk-animation-fade" id="js--hero-list" uk-grid uk-height-match="target: > div > a > .uk-card; row: false">
                 
             </div>
 

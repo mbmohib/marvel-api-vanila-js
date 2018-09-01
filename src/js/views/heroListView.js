@@ -19,9 +19,8 @@ const renderHero = hero => `
 export const renderHeroes = () => {
     const markup = records.map( hero => {
         return renderHero(hero);
-    }).join('')
+    }).join('');
+
 
     elements.heroList.insertAdjacentHTML('beforeend', markup);
-
-    // renderLoader(elements.heros);
 }

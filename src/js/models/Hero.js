@@ -1,14 +1,13 @@
-import { getData, characterIds } from '../base';
+import { getData } from '../base';
 import config from '../config';
 
-export default class Superhero {
+export default class Hero {
     constructor(id) {
         this.url = `${config.charactersUrl}/${id}`;
     }
 
-    async getSuperhero() {
+    async getHero() {
         const data = await getData(this.url);
-        console.log(data);
 
         ({ 
             id: this.id,

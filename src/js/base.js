@@ -3,9 +3,15 @@ import CryptoJS from 'crypto-js';
 import config from './config';
 
 export const elements = {
-    searchInput: document.getElementById('js--search-field'),
-    submitSearch: document.getElementById('js--search-submit'),
+    homeLink: document.querySelectorAll('.js--home-link'),
+    header: document.getElementById('js--header'),
+    homeIntro: document.getElementById('js--home-intro'),
+    detailsIntro: document.getElementById('js--details-intro'),
     heroList: document.getElementById('js--hero-list'),
+    heroDetails: document.getElementById('js--hero-details'),
+    heroDetailsThumbnail: document.querySelector('.intro-sec__thumbnail'),
+    heroDetailsHeading: document.querySelector('.intro-sec__heading'),
+    heroDetailsContent: document.querySelector('.intro-sec__desc'),
 }
 
 export const getData = async (url) => {
@@ -42,4 +48,23 @@ export const renderLoader = parent => {
 export const clearLoader = ()=> {
     const loader = document.querySelector('.loader');
     if (loader) loader.parentElement.removeChild(loader);
+}
+
+export const viewChange = view => {
+    if (view === 'home') {
+        elements.heroList.classList.remove('uk-hidden', 'uk-animation-reverse');
+        elements.homeIntro.classList.remove('uk-hidden', 'uk-animation-reverse');
+        elements.header.style.backgroundImage = 'linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.9)), url(./src/images/home-bg.jpg)';
+
+        elements.detailsIntro.classList.add('uk-hidden', 'uk-animation-reverse');
+        elements.heroDetails.classList.add('uk-hidden', 'uk-animation-reverse');
+
+    } else if (view === 'details') {
+        elements.heroList.classList.add('uk-hidden', 'uk-animation-reverse');
+        elements.homeIntro.classList.add('uk-hidden', 'uk-animation-reverse');
+        elements.header.style.backgroundImage = 'linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.9)), url(./src/images/details-bg.jpg)';
+
+        elements.detailsIntro.classList.remove('uk-hidden', 'uk-animation-reverse');
+        elements.heroDetails.classList.remove('uk-hidden', 'uk-animation-reverse');
+    }
 }
