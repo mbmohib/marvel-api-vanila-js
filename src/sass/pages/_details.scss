@@ -22,7 +22,7 @@
     }
 }
 
-.comics-sec {
+.events-sec {
     &__heading {
         text-align: center;
         font-family: $secondaryFont;
@@ -31,4 +31,16 @@
     &__content {
         margin-top: $largeSpace;
     }
+}
+
+.events-details {
+    margin-top: $largeSpace;
+
+    &__heading {
+        font-size: 1.1rem;
+    }
+}
+
+.uk-offcanvas-bar {
+    width: 40vw;
 }

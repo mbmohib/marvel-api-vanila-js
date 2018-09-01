@@ -9,9 +9,7 @@ export const elements = {
     detailsIntro: document.getElementById('js--details-intro'),
     heroList: document.getElementById('js--hero-list'),
     heroDetails: document.getElementById('js--hero-details'),
-    heroDetailsThumbnail: document.querySelector('.intro-sec__thumbnail'),
-    heroDetailsHeading: document.querySelector('.intro-sec__heading'),
-    heroDetailsContent: document.querySelector('.intro-sec__desc'),
+    eventDetails: document.getElementById('js--event-details'),
 }
 
 export const getData = async (url) => {
@@ -33,20 +31,14 @@ export const getData = async (url) => {
     return res.data.data;
 }
 
-export const renderLoader = parent => {
-    const loader = `
-        <div class="loader">
-            <svg>
-                <use href="./src/images/icons.svg#icon-cw"></use>
-            </svg>
-        </div>
-    `;
-
-    parent.insertAdjacentHTML('afterbegin', loader);
+export const renderLoader = element => {
+    element.innerHTML = '';
+    element.innerHTML = `
+        <div class="uk-flex uk-flex-center" uk-spinner="ratio: 5"></div>`;
 }
 
 export const clearLoader = ()=> {
-    const loader = document.querySelector('.loader');
+    const loader = document.querySelector('[uk-spinner]');
     if (loader) loader.parentElement.removeChild(loader);
 }
 

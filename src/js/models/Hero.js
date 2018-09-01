@@ -14,7 +14,10 @@ export default class Hero {
             name: this.name,
             description: this.description, 
             thumbnail: this.thumbnail, 
-            comics: this.comics
+            comics: this.comics,
+            resourceURI: this.url,
+            series: this.series,
+            stories: this.stories
         } = data.results[0]);
 
         return {
@@ -22,7 +25,10 @@ export default class Hero {
             name: this.name,
             description: this.description,
             thumbnail: this.thumbnail,
-            comics: this.comics
+            comics: this.comics,
+            url: this.url,
+            series: this.series,
+            stories: this.stories
         }
     }
 }
