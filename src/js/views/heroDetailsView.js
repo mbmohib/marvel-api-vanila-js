@@ -1,27 +1,4 @@
 import { viewChange, elements, renderLoader, clearLoader } from '../base';
-import Hero from '../models/Hero'
-
-const renderData = data => {
-    const markup = `
-        <div class="uk-container">
-            <div class="uk-child-width-1-2@m" uk-grid>
-                <div>
-                    <img class="uk-align-center uk-border-rounded intro-sec__thumbnail" data-src="${data.thumbnail.path}/portrait_uncanny.${data.thumbnail.extension}" alt="${data.name}" uk-img>
-                </div>
-                <div>
-                    <h1 class="intro-sec__heading">${data.name}</h1>
-                    <p class="intro-sec__desc uk-dropcap">${data.description}</p>
-
-                    <div class="uk-margin intro-sec__buttons">
-                        <a href="" class="uk-button uk-button-default">Visit Resourse</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-
-    elements.detailsIntro.insertAdjacentHTML('afterbegin', markup);
-}
 
 const event = (arr) => {
     return arr.map( data => {
@@ -48,7 +25,7 @@ const event = (arr) => {
     }).splice(0, 6).join('');
 }
 
-const events = (name, data) => {
+export const renderEvents = (name, data) => {
     const markup = `
         <div class="uk-section uk-margin events-sec">
             <div class="uk-margin">
@@ -66,20 +43,24 @@ const events = (name, data) => {
     elements.heroDetails.insertAdjacentHTML('afterbegin', markup);
 }
 
-export const renderHeroDetails = async (id) => {
-    
-    viewChange('details');
-    renderLoader(elements.detailsIntro);
-    elements.heroDetails.innerHTML = '';
+export const renderHeroDetails = data => {
+    const markup = `
+        <div class="uk-container">
+            <div class="uk-child-width-1-2@m" uk-grid>
+                <div>
+                    <img class="uk-align-center uk-border-rounded intro-sec__thumbnail" data-src="${data.thumbnail.path}/portrait_uncanny.${data.thumbnail.extension}" alt="${data.name}" uk-img>
+                </div>
+                <div>
+                    <h1 class="intro-sec__heading">${data.name}</h1>
+                    <p class="intro-sec__desc uk-dropcap">${data.description}</p>
 
-    const hero = new Hero(id);
-    const data = await hero.getHero();
+                    <div class="uk-margin intro-sec__buttons">
+                        <a href="" class="uk-button uk-button-default">Visit Resourse</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
 
-    // Render Data to the UI
-    clearLoader();
-    renderData(data)
-
-    if (data.series.available > 0) events('Series', data.series);
-    if (data.stories.available > 0) events('Stories', data.stories);
-    if (data.comics.available > 0) events('Comics', data.comics);
+    elements.detailsIntro.insertAdjacentHTML('afterbegin', markup);
 }

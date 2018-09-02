@@ -1,5 +1,4 @@
 import { elements, renderLoader } from '../base';
-import records from '../records';
 
 const renderHero = hero => `
     <div>
@@ -16,8 +15,8 @@ const renderHero = hero => `
     </div>
 `;
 
-export const renderHeroes = () => {
-    const markup = records.map( hero => {
+export const renderHeroes = heros => {
+    const markup = heros.map( hero => {
         return renderHero(hero);
     }).join('');
 

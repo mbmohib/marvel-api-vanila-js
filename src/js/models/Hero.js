@@ -17,7 +17,8 @@ export default class Hero {
             comics: this.comics,
             resourceURI: this.url,
             series: this.series,
-            stories: this.stories
+            stories: this.stories,
+            events: this.events
         } = data.results[0]);
 
         return {
@@ -28,7 +29,8 @@ export default class Hero {
             comics: this.comics,
             url: this.url,
             series: this.series,
-            stories: this.stories
+            stories: this.stories,
+            events: this.events
         }
     }
 }

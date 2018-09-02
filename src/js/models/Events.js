@@ -1,5 +1,4 @@
 import { getData } from '../base';
-import config from '../config';
 
 export default class Event {
     constructor(url) {
