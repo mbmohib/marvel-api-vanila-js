@@ -31,6 +31,7 @@ export const getData = async (url, offset = 20, limit = 20) => {
                 apikey: config.publicKey
             }}
         )
+        console.log(res.status);
     
         return res.data.data;
     } catch(err) {
