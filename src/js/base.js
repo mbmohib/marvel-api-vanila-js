@@ -12,7 +12,7 @@ export const elements = {
     eventDetails: document.getElementById('js--event-details'),
 }
 
-export const getData = async (url) => {
+export const getData = async (url, offset = 20, limit = 20) => {
 
     // New timestamp for every request                                                                                    
     const ts = new Date().getTime();
@@ -22,19 +22,25 @@ export const getData = async (url) => {
 
     const res = await axios.get(url, {
         params: {
-            ts: ts,
-            apikey: config.publicKey,
-            hash: hash,
+            ts,
+            hash,
+            limit,
+            offset,
+            apikey: config.publicKey
         }}
     )
 
     return res.data.data;
 }
 
-export const renderLoader = element => {
-    element.innerHTML = '';
-    element.innerHTML = `
-        <div class="uk-flex uk-flex-center" uk-spinner="ratio: 5"></div>`;
+export const renderLoader = (element, append = false) => {
+    const markup = `<div class="uk-flex uk-flex-center uk-width-expand" uk-spinner="ratio: 5"></div>`;
+    if (!append) {
+        element.innerHTML = '';
+        element.innerHTML = markup;
+    } else {
+        element.insertAdjacentHTML('beforeend', markup)
+    }
 }
 
 export const clearLoader = ()=> {

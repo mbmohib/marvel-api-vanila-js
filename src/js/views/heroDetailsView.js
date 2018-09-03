@@ -1,47 +1,61 @@
 import { viewChange, elements, renderLoader, clearLoader } from '../base';
 
-const event = (arr) => {
-    return arr.map( data => {
+const truncateString = string => {
+    if (string.length > 100) {
+        return string.split('').splice(0, 100).join('') + '....';
+    }
+
+    return string;
+}
+
+export const renderEvents = (parent, arr) => {
+    const markup = arr.map( item => {
         return `
             <div>
                 <div class="uk-card uk-card-default">
                     <div class="uk-card-header">
                         <div class="uk-grid-small uk-flex-middle" uk-grid>
                             <div class="uk-width-auto">
-                                <span uk-icon="nut"></span>
+                                <img data-src="${item.thumbnail ? item.thumbnail.path : ''}/portrait_small.${item.thumbnail ? item.thumbnail.extension : ''}" uk-img>
                             </div>
                             <div class="uk-width-expand">
-                                <h3 class="uk-card-title uk-margin-remove-bottom">${data.name}</h3>
-                                <p class="uk-text-meta uk-margin-top">${data.type ? data.type : ''}</p>
+                                <h3 class="uk-card-title uk-margin-remove-bottom">${item.title}</h3>
+                                <p class="uk-text-meta uk-margin-remove-top"><time datetime="">${item.dates ? item.dates[0].date : ''}</time></p>
                             </div>
                         </div>
                     </div>
+                    <div class="uk-card-body">
+                        <p>${item.description ? truncateString(item.description ): 'Sorry, description is not available at this moment.'}</p>
+                    </div>
                     <div class="uk-card-footer">
-                        <a href="#my-id" uk-toggle data-href="${data.resourceURI}" class="uk-button uk-button-text js--read-more">Read more</a>
+                    <a href="#my-id" uk-toggle data-href="${item.resourceURI}" class="uk-button uk-button-text js--read-more">Read more</a>
                     </div>
                 </div>
             </div>
         `;
     }).splice(0, 6).join('');
+
+    parent.insertAdjacentHTML('beforeend', markup)
 }
 
-export const renderEvents = (name, data) => {
+export const renderEventsIntro = (name, total) => {
     const markup = `
         <div class="uk-section uk-margin events-sec">
             <div class="uk-margin">
-                <h1 class="events-sec__heading uk-heading-line"><span>${name} <em>(${data.available})</em></span></h1>
+                <h1 class="events-sec__heading uk-heading-line"><span>${name} <em>(${total})</em></span></h1>
             </div>
 
-            <div class="uk-child-width-1-3@m events-sec__content" uk-grid>
-                ${event(data.items)}
+            <div id="${name.toLowerCase()}-events" class="uk-child-width-1-3@m events-sec__content" uk-grid uk-height-match="target: > div > .uk-card">
+
             </div>
 
-            <button class="uk-button uk-button-primary uk-margin-medium-top uk-align-center">Load More</button>
+            <button data-event="${name.toLowerCase()}" id="${name.toLowerCase()}-load-more-btn" class="uk-button uk-button-primary uk-margin-medium-top uk-align-center">Load More</button>
         </div>
     `;
 
-    elements.heroDetails.insertAdjacentHTML('afterbegin', markup);
+    elements.heroDetails.insertAdjacentHTML('beforeend', markup);
 }
+
 
 export const renderHeroDetails = data => {
     const markup = `

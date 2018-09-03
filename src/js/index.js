@@ -1,16 +1,17 @@
-import Event from './models/Events';
+import Event from './models/Event';
+import Events from './models/Events';
 import Hero from './models/Hero'
 import { renderHeroes } from './views/heroListView';
-import { renderHeroDetails, renderEvents } from './views/heroDetailsView';
+import { renderHeroDetails, renderEvents, renderEventsIntro } from './views/heroDetailsView';
 import { renderEvent } from './views/eventView';
 import { elements, renderLoader, clearLoader } from './base';
 import { viewChange } from './base';
 import records from './records';
+import config from './config';
 
 // Center Data Store Point
 const state = {};
 window.state = state;
-console.log(state);
 
 /**
  * Hangle View based on Hash value
@@ -35,6 +36,26 @@ function toggleView() {
     } 
 
     // TODO: Catch error for other hash value
+}
+
+const handleEvents = async (name, count, url) => {
+    // Prepare UI
+    renderEventsIntro(name, count);
+    const container = document.getElementById(`${name.toLowerCase()}-events`);
+    renderLoader(container)
+    
+    try {
+        // Load Data
+        const events = new Events(url);
+        const eventsData = await events.getEvents();
+
+        // Redner Data
+        clearLoader();
+        renderEvents(container, eventsData);
+
+    } catch(err) {
+        console.log(err);
+    }
 }
 
 
@@ -69,26 +90,50 @@ const heroDetailsController = async (id) => {
     clearLoader();
     renderHeroDetails(data)
 
-    if (data.series.available > 0) renderEvents('Series', data.series);
-    if (data.events.available > 0) renderEvents('Events', data.events);
-    if (data.stories.available > 0) renderEvents('Stories', data.stories);
-    if (data.comics.available > 0) renderEvents('Comics', data.comics);
+
+    if (data.comics.available > 0) {
+        handleEvents('Comics', data.comics.available, data.comics.collectionURI);
+    };
+
+    if (data.series.available > 0) {
+        handleEvents('Series', data.series.available, data.series.collectionURI);
+    };
+
+    if (data.stories.available > 0) {
+        handleEvents('Stories', data.stories.available, data.stories.collectionURI);
+    };
+
+    if (data.events.available > 0) {
+        handleEvents('Events', data.events.available, data.events.collectionURI);
+    };
 }
 
 /**
  * 
  *  Comics/Stories/Events/Series Controller
- * @param {*} endpoint
+ *  @param {*} endpoint
  */
 const eventController = async endpoint => {
+    // TODO: Need to Refactor
     renderLoader(elements.eventDetails);
-
 
     const event = new Event(endpoint);
     const data = await event.getEvent();
 
     clearLoader();
     renderEvent(data)
+}
+
+const loadMoreEvents = async element => {
+
+    const container = document.getElementById(`${element.dataset.event.toLowerCase()}-events`);
+    renderLoader(container, true);
+
+    const event = new Events(config[element.dataset.event], 6);
+    const data = await event.getEvents();
+
+    clearLoader();
+    renderEvents(container, data)
 }
 
 
@@ -100,6 +145,14 @@ const eventController = async endpoint => {
 elements.heroDetails.addEventListener('click', e => {
     if (e.target.matches('.js--read-more')) {
         eventController(e.target.getAttribute('data-href'));
+    } else if (e.target.matches('#comics-load-more-btn')) {
+        loadMoreEvents(e.target);
+    } else if (e.target.matches('#stories-load-more-btn')) {
+        loadMoreEvents(e.target);
+    } else if (e.target.matches('#series-load-more-btn')) {
+        loadMoreEvents(e.target);
+    } else if (e.target.matches('#events-load-more-btn')) {
+        loadMoreEvents(e.target);
     }
 });
 

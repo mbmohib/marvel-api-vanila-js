@@ -22,14 +22,25 @@
     }
 }
 
+.hero-details {
+    // min-height: 40vh;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+}
+
 .events-sec {
     &__heading {
         text-align: center;
         font-family: $secondaryFont;
     }
-
+    
     &__content {
         margin-top: $largeSpace;
+        
+        .uk-card-title {
+            @include one-line-text; 
+        }
     }
 }
 
