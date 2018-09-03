@@ -6,7 +6,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 
 module.exports = {
-    entry: './src/js/bootstrap.js',
+    entry: ['babel-polyfill', './src/js/entry.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
