@@ -10,7 +10,7 @@ const renderCharecter = characters => {
         return `
             <tr>
                 <td class="uk-table-expand">${character.name}</td>
-                <td class="uk-width-small"><a class="uk-button uk-button-default" href="#${parseHash(character.resourceURI)}">View</a></td>
+                <td class="uk-width-small"><a class="uk-button uk-button-default js--off-canvas-close" href="#${parseHash(character.resourceURI)}">View</a></td>
             </tr>
         `;
     }).join('')

@@ -10,6 +10,7 @@ export const elements = {
     heroList: document.getElementById('js--hero-list'),
     heroDetails: document.getElementById('js--hero-details'),
     eventDetails: document.getElementById('js--event-details'),
+    recentItems: document.getElementById('js--recent-items'),
 }
 
 export const getData = async (url, offset = 20, limit = 20) => {

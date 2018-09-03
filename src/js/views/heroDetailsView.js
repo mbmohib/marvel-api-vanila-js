@@ -1,6 +1,8 @@
 import { viewChange, elements, clearLoader } from '../base';
+import moment from 'moment';
 
 const truncateString = string => {
+    // TODO: Improve string truncate algo
     if (string.length > 100) {
         return string.split('').splice(0, 100).join('') + '....';
     }
@@ -20,7 +22,7 @@ export const renderEvents = (parent, arr) => {
                             </div>
                             <div class="uk-width-expand">
                                 <h3 class="uk-card-title uk-margin-remove-bottom">${item.title}</h3>
-                                <p class="uk-text-meta uk-margin-remove-top"><time datetime="">${item.dates ? item.dates[0].date : ''}</time></p>
+                                <p class="uk-text-meta uk-margin-remove-top"><time datetime="">${item.dates ? moment(item.dates[0].date).format("Do MMM, YYYY") : ''}</time></p>
                             </div>
                         </div>
                     </div>
@@ -55,7 +57,6 @@ export const renderEventsIntro = (name, total) => {
 
     elements.heroDetails.insertAdjacentHTML('beforeend', markup);
 }
-
 
 export const renderHeroDetails = data => {
     const markup = `

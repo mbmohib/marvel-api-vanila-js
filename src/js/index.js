@@ -2,6 +2,7 @@ import Event from './models/Event';
 import Events from './models/Events';
 import Hero from './models/Hero'
 import { renderHeroes } from './views/heroListView';
+import { recentItems } from './views/recentItems';
 import { renderHeroDetails, renderEvents, renderEventsIntro } from './views/heroDetailsView';
 import { renderEvent } from './views/eventDetailsView';
 import { elements, renderLoader, clearLoader } from './base';
@@ -28,6 +29,9 @@ function toggleView() {
     if(hashValue === 'home' || hashValue === '') {
         // Render Hero List
         viewChange('home');
+        if (state.visitedHeros) {
+            recentItems(state.visitedHeros);
+        }
 
     } else if (parseInt(hashValue) !== NaN) {
         // Render Hero Details
@@ -121,7 +125,6 @@ const heroDetailsController = async (id) => {
  *  @param {*} endpoint
  */
 const eventController = async endpoint => {
-    // TODO: Need to Refactor
     renderLoader(elements.eventDetails);
 
     const event = new Event(endpoint);
@@ -166,7 +169,21 @@ elements.heroDetails.addEventListener('click', e => {
 });
 
 //Load backupHeros details after hashchange;
-['load', 'hashchange'].forEach( event => window.addEventListener(event, toggleView))
+['load', 'hashchange'].forEach( event => window.addEventListener(event, toggleView));
+
+elements.eventDetails.addEventListener('click', e => {
+    if (e.target.matches('.js--off-canvas-close')) {
+        UIkit.offcanvas('#my-id').hide();
+    }
+})
+
+/*
+TODO: Next todo list
+4. Edit Readme
+5. Fix SpiderMan Series markup
+6. Store New Visited Hero to Recoreds.js
+7. Implement Search
+*/
 
 
 
