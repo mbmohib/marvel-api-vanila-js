@@ -4,6 +4,16 @@ body {
     font-family: $primaryFont;
     background: $bodyColor;
     font-size: 1rem;
+
+    .body-wrapper {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    
+        main {
+            flex: 1;
+        }
+    }
 }
 
 a {
