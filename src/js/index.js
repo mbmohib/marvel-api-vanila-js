@@ -134,10 +134,11 @@ const eventController = async endpoint => {
 const loadMoreEvents = async element => {
 
     const container = document.getElementById(`${element.dataset.event.toLowerCase()}-events`);
+    const offset = container.closest('.events-sec').querySelectorAll('.uk-card').length;
     
     renderLoader(container, true);
 
-    const event = new Events(config[element.dataset.event], 6);
+    const event = new Events(config[element.dataset.event], offset);
     const data = await event.getEvents();
 
     clearLoader();
