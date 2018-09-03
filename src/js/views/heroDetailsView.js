@@ -1,4 +1,4 @@
-import { viewChange, elements, renderLoader, clearLoader } from '../base';
+import { viewChange, elements, clearLoader } from '../base';
 
 const truncateString = string => {
     if (string.length > 100) {
@@ -35,7 +35,7 @@ export const renderEvents = (parent, arr) => {
         `;
     }).splice(0, 6).join('');
 
-    parent.insertAdjacentHTML('beforeend', markup)
+    parent.insertAdjacentHTML('beforeend', markup);
 }
 
 export const renderEventsIntro = (name, total) => {

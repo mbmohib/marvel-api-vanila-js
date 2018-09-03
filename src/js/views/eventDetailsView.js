@@ -26,6 +26,13 @@ export const renderEvent = event => {
 
             <p class="events-details__description">${event.description ? event.description : ''}</p>
 
+            <h4 class="uk-heading-line uk-text-center"><span>Specification</span></h4>
+
+            <div class="uk-margin">
+                <p>Issue: ${event.issue}</p>
+                <p>Total Page: ${event.page}</p>
+            </div>
+
             <h4 class="uk-heading-line uk-text-center"><span>Charecters <em>(${event.characters.available})</em></span></h4>
 
             <table class="uk-table uk-table-hover uk-table-divider uk-table-middle">

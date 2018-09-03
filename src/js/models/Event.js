@@ -24,8 +24,8 @@ export default class Event {
             description: this.description,
             thumbnail: this.thumbnail,
             characters: this.characters,
-            issueNumber: this.issueNumber,
-            pageCount: this.pageCount,
+            issue: this.issueNumber,
+            page: this.pageCount,
         }
     }
 }

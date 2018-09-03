@@ -3,7 +3,7 @@ import Events from './models/Events';
 import Hero from './models/Hero'
 import { renderHeroes } from './views/heroListView';
 import { renderHeroDetails, renderEvents, renderEventsIntro } from './views/heroDetailsView';
-import { renderEvent } from './views/eventView';
+import { renderEvent } from './views/eventDetailsView';
 import { elements, renderLoader, clearLoader } from './base';
 import { viewChange } from './base';
 import records from './records';
@@ -38,24 +38,31 @@ function toggleView() {
     // TODO: Catch error for other hash value
 }
 
-const handleEvents = async (name, count, url) => {
+const handleEvents = async (name, heroId, count, url) => {
     // Prepare UI
     renderEventsIntro(name, count);
     const container = document.getElementById(`${name.toLowerCase()}-events`);
     renderLoader(container)
-    
-    try {
-        // Load Data
-        const events = new Events(url);
-        const eventsData = await events.getEvents();
 
-        // Redner Data
-        clearLoader();
-        renderEvents(container, eventsData);
+    const index = state.visitedHeros.findIndex( hero => hero.id === heroId);
+    let eventsData;
 
-    } catch(err) {
-        console.log(err);
+    if (!state.visitedHeros[index][name.toLowerCase()].itemsWithDetails) {
+        try {
+            // Load Data
+            const events = new Events(url);
+            eventsData = await events.getEvents();
+            state.visitedHeros[index][name.toLowerCase()].itemsWithDetails = eventsData;
+        } catch(err) {
+            console.log(err);
+        }
+    } else {
+        eventsData = state.visitedHeros[index][name.toLowerCase()].itemsWithDetails;
     }
+
+    // Redner Data
+    clearLoader();
+    renderEvents(container, eventsData);
 }
 
 
@@ -92,19 +99,19 @@ const heroDetailsController = async (id) => {
 
 
     if (data.comics.available > 0) {
-        handleEvents('Comics', data.comics.available, data.comics.collectionURI);
+        handleEvents('Comics', id, data.comics.available, data.comics.collectionURI);
     };
 
     if (data.series.available > 0) {
-        handleEvents('Series', data.series.available, data.series.collectionURI);
+        handleEvents('Series', id, data.series.available, data.series.collectionURI);
     };
 
     if (data.stories.available > 0) {
-        handleEvents('Stories', data.stories.available, data.stories.collectionURI);
+        handleEvents('Stories', id, data.stories.available, data.stories.collectionURI);
     };
 
     if (data.events.available > 0) {
-        handleEvents('Events', data.events.available, data.events.collectionURI);
+        handleEvents('Events', id, data.events.available, data.events.collectionURI);
     };
 }
 
@@ -127,6 +134,7 @@ const eventController = async endpoint => {
 const loadMoreEvents = async element => {
 
     const container = document.getElementById(`${element.dataset.event.toLowerCase()}-events`);
+    
     renderLoader(container, true);
 
     const event = new Events(config[element.dataset.event], 6);
