@@ -21,17 +21,21 @@ export const getData = async (url, offset = 20, limit = 20) => {
     // New Hash for every request
     const hash = CryptoJS.MD5(ts + config.privateKey + config.publicKey).toString();
 
-    const res = await axios.get(url, {
-        params: {
-            ts,
-            hash,
-            limit,
-            offset,
-            apikey: config.publicKey
-        }}
-    )
-
-    return res.data.data;
+    try {
+        const res = await axios.get(url, {
+            params: {
+                ts,
+                hash,
+                limit,
+                offset,
+                apikey: config.publicKey
+            }}
+        )
+    
+        return res.data.data;
+    } catch(err) {
+        console.log(err);
+    }
 }
 
 export const renderLoader = (element, append = false) => {
