@@ -1,4 +1,4 @@
-import { elements } from '../base';
+import { elements, addHttps } from '../base';
 
 export const recentItems = arr => {
     const markup = arr.map( hero => {
@@ -7,7 +7,7 @@ export const recentItems = arr => {
                 <a href="#${hero.id}">
                     <div class="uk-card uk-card-default uk-card-hover">
                         <div class="uk-card-media-top">
-                            <img class="uk-align-center" data-src="${hero.thumbnail.path}/landscape_xlarge.${hero.thumbnail.extension}" alt="" uk-img>
+                            <img class="uk-align-center" data-src="${addHttps(hero.thumbnail.path)}/landscape_xlarge.${hero.thumbnail.extension}" alt="" uk-img>
                         </div>
                     </div>
                 </a>

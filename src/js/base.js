@@ -31,8 +31,6 @@ export const getData = async (url, offset = 20, limit = 20) => {
                 apikey: config.publicKey
             }}
         )
-        console.log(res.status);
-    
         return res.data.data;
     } catch(err) {
         console.log(err);
@@ -71,4 +69,14 @@ export const viewChange = view => {
         elements.detailsIntro.classList.remove('uk-hidden', 'uk-animation-reverse');
         elements.heroDetails.classList.remove('uk-hidden', 'uk-animation-reverse');
     }
+}
+
+export const addHttps = url => {
+    const protocol = url.split('://');
+
+    if (protocol[0] === 'http') {
+        return `https://${protocol[1]}`;
+    }
+    
+    return url;
 }

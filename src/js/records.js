@@ -3,7 +3,7 @@ const records = [
         id: 1009189,
         name: "Black Widow",
         thumbnail: {
-            path: 'http://i.annihil.us/u/prod/marvel/i/mg/f/30/50fecad1f395b',
+            path: 'https://i.annihil.us/u/prod/marvel/i/mg/f/30/50fecad1f395b',
             extension: 'jpg'
         }
     },

@@ -1,4 +1,4 @@
-import { elements } from '../base';
+import { elements, addHttps } from '../base';
 
 const parseHash = value => {
     const regex = /\d{5,}/;
@@ -20,7 +20,7 @@ export const renderEvent = event => {
     const markup = `
         <button class="uk-offcanvas-close" type="button" uk-close></button>
         <div class="events-details">
-            ${event.thumbnail ? `<img class="uk-align-center" data-src="${event.thumbnail.path}/portrait_medium.${event.thumbnail.extension}" alt="${event.title}" uk-img>` : ''}
+            ${event.thumbnail ? `<img class="uk-align-center" data-src="${addHttps(event.thumbnail.path)}/portrait_medium.${event.thumbnail.extension}" alt="${event.title}" uk-img>` : ''}
             
             <h2 class="events-details__heading uk-heading-bullet">${event.title}</h2>
 

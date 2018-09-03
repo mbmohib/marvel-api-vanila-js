@@ -1,4 +1,4 @@
-import { viewChange, elements, clearLoader } from '../base';
+import { addHttps, elements } from '../base';
 import moment from 'moment';
 
 const truncateString = string => {
@@ -18,7 +18,7 @@ export const renderEvents = (parent, arr) => {
                     <div class="uk-card-header">
                         <div class="uk-grid-small uk-flex-middle" uk-grid>
                             <div class="uk-width-auto">
-                                <img data-src="${item.thumbnail ? item.thumbnail.path : ''}/portrait_small.${item.thumbnail ? item.thumbnail.extension : ''}" uk-img>
+                                <img data-src="${item.thumbnail ? addHttps(item.thumbnail.path) : ''}/portrait_small.${item.thumbnail ? item.thumbnail.extension : ''}" uk-img>
                             </div>
                             <div class="uk-width-expand">
                                 <h3 class="uk-card-title uk-margin-remove-bottom">${item.title}</h3>
@@ -63,7 +63,7 @@ export const renderHeroDetails = data => {
         <div class="uk-container">
             <div class="uk-child-width-1-2@m" uk-grid>
                 <div>
-                    <img class="uk-align-center uk-border-rounded intro-sec__thumbnail" data-src="${data.thumbnail.path}/portrait_uncanny.${data.thumbnail.extension}" alt="${data.name}" uk-img>
+                    <img class="uk-align-center uk-border-rounded intro-sec__thumbnail" data-src="${addHttps(data.thumbnail.path)}/portrait_uncanny.${data.thumbnail.extension}" alt="${data.name}" uk-img>
                 </div>
                 <div>
                     <h1 class="intro-sec__heading">${data.name}</h1>
