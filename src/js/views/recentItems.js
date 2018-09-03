@@ -1,7 +1,6 @@
 import { elements } from '../base';
 
 export const recentItems = arr => {
-    const heading = `<h3 class="uk-heading-line"><span>Recent Items</span></h3>`;
     const markup = arr.map( hero => {
         return `
             <div>
@@ -16,6 +15,6 @@ export const recentItems = arr => {
         `;
     }).join('');
 
-    elements.recentItems.parentElement.insertAdjacentHTML('afterbegin', heading);
+    elements.recentItems.parentElement.querySelector('h3').classList.remove('uk-hidden');
     elements.recentItems.innerHTML = markup;
 }
