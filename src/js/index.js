@@ -5,7 +5,7 @@ import { renderHeroes } from './views/heroListView';
 import { recentItems } from './views/recentItems';
 import { renderHeroDetails, renderEvents, renderEventsIntro } from './views/heroDetailsView';
 import { renderEvent } from './views/eventDetailsView';
-import { elements, renderLoader, clearLoader } from './base';
+import { elements, renderLoader, clearLoader, addHttps } from './base';
 import { viewChange } from './base';
 import records from './records';
 import config from './config';
@@ -103,19 +103,19 @@ const heroDetailsController = async (id) => {
 
 
     if (data.comics.available > 0) {
-        handleEvents('Comics', id, data.comics.available, data.comics.collectionURI);
+        handleEvents('Comics', id, data.comics.available, addHttps(data.comics.collectionURI));
     };
 
     if (data.series.available > 0) {
-        handleEvents('Series', id, data.series.available, data.series.collectionURI);
+        handleEvents('Series', id, data.series.available, addHttps(data.series.collectionURI));
     };
 
     if (data.stories.available > 0) {
-        handleEvents('Stories', id, data.stories.available, data.stories.collectionURI);
+        handleEvents('Stories', id, data.stories.available, addHttps(data.stories.collectionURI));
     };
 
     if (data.events.available > 0) {
-        handleEvents('Events', id, data.events.available, data.events.collectionURI);
+        handleEvents('Events', id, data.events.available, addHttps(data.events.collectionURI));
     };
 }
 
@@ -127,7 +127,7 @@ const heroDetailsController = async (id) => {
 const eventController = async endpoint => {
     renderLoader(elements.eventDetails);
 
-    const event = new Event(endpoint);
+    const event = new Event(addHttps(endpoint));
     const data = await event.getEvent();
 
     clearLoader();
